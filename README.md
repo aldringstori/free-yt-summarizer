@@ -1,4 +1,7 @@
 Created by Aldrin Gustavo Stori
+Inspired by
+https://github.com/ayaansh-roy/llm_chrome_ext_summerizer
+https://github.com/xingyuqiu2/youtube-translator-summarizer-extension
 
 
 ## Simple explanation (for begginers)
