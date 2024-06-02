@@ -6,11 +6,11 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border-radius: 10%;
-  box-shadow: 10px 5px 5px #ddd;
-  margin-bottom: 50px;
-  position: relative;
-  width: 100%;
+  border-radius: 20px; /* Increase the border-radius for more roundness */
+  border: 1px solid #ddd; /* Add border to match reference */
+  width: 90%; /* Adjust width for better appearance */
+  margin: 0 auto; /* Center the container */
+  margin-top: 20px; /* Add some margin on top */
 }
 
 #header-container {
@@ -20,22 +20,45 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center; /* Center the header content */
+  width: 100%; /* Full width for the header */
 }
 
 .extension-icon {
-  width: 30px;
-  height: 30px;
+  width: 24px; /* Increase icon size */
+  height: 24px; /* Increase icon size */
   margin-right: 10px;
 }
 
 .extension-title {
-  font-size: 14px;
+  font-size: 20px; /* Increase font size */
   font-weight: bold;
   padding: 8px;
+  margin: 0; /* Remove margin */
+}
+
+/* Style for the summary button */
+#summary-btn {
+  background-color: #784dca;
+  color: #fff;
+  border: none;
+  padding: 10px 30px; /* Adjust padding for better appearance */
+  cursor: pointer;
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
+  transition: background-color 0.3s ease;
+  font-size: 16px; /* Adjust font size for better appearance */
+  margin-top: 15px; /* Add margin to the top */
+}
+
+#summary-btn:hover {
+  background-color: #56329c;
 }
 
 /* Additional styles to ensure content displays correctly */
 #summary-container {
-  margin-top: 10px;
+  margin-top: 20px; /* Increase margin-top */
+  width: 100%;
+  text-align: center; /* Center align the text */
+  font-size: 16px; /* Adjust font size for better appearance */
 }

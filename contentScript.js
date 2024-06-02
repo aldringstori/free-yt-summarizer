@@ -42,7 +42,7 @@
         } else {
             document.body.appendChild(extensionContainer);
         }
-    }, 6000); // 3 seconds delay
+    }, 9000); // 9 seconds delay
 };
 
   // Handle the summary button click event
