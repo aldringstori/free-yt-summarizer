@@ -1,40 +1,51 @@
 // contentScript.js
 
 (() => {
+  // Create the user interface for the extension
   const createUI = () => {
-      const extensionContainer = document.createElement('div');
-      extensionContainer.id = 'extension-container';
+    const extensionContainer = document.createElement('div');
+    extensionContainer.id = 'extension-container';
 
-      const header = document.createElement('div');
-      header.id = 'header-container';
+    const header = document.createElement('div');
+    header.id = 'header-container';
 
-      const icon = document.createElement('img');
-      icon.src = chrome.runtime.getURL("assets/ext-icon.png");
-      icon.title = "ext-icon";
-      icon.className = "extension-icon";
+    const icon = document.createElement('img');
+    icon.src = chrome.runtime.getURL("assets/ext-icon.png");
+    icon.title = "ext-icon";
+    icon.className = "extension-icon";
 
-      const title = document.createElement('p');
-      title.textContent = "YouTube Summarizer";
-      title.className = "extension-title";
+    const title = document.createElement('p');
+    title.textContent = "YouTube Summarizer";
+    title.className = "extension-title";
 
-      header.appendChild(icon);
-      header.appendChild(title);
+    header.appendChild(icon);
+    header.appendChild(title);
 
-      const summaryButton = document.createElement('button');
-      summaryButton.id = 'summary-btn';
-      summaryButton.textContent = 'Get Summary';
-      summaryButton.addEventListener('click', handleSummaryButtonClick);
+    const summaryButton = document.createElement('button');
+    summaryButton.id = 'summary-btn';
+    summaryButton.textContent = 'Get Summary';
+    summaryButton.addEventListener('click', handleSummaryButtonClick);
 
-      const summaryContainer = document.createElement('div');
-      summaryContainer.id = 'summary-container';
+    const summaryContainer = document.createElement('div');
+    summaryContainer.id = 'summary-container';
 
-      extensionContainer.appendChild(header);
-      extensionContainer.appendChild(summaryButton);
-      extensionContainer.appendChild(summaryContainer);
+    extensionContainer.appendChild(header);
+    extensionContainer.appendChild(summaryButton);
+    extensionContainer.appendChild(summaryContainer);
 
-      document.body.appendChild(extensionContainer);
-  };
+    // Delay to ensure elements have loaded before inserting the extension container
+    setTimeout(() => {
+        const secondaryElement = document.getElementById("secondary");
+        const secondaryInnerElement = document.getElementById("secondary-inner");
+        if (secondaryElement && secondaryInnerElement) {
+            secondaryElement.insertBefore(extensionContainer, secondaryInnerElement);
+        } else {
+            document.body.appendChild(extensionContainer);
+        }
+    }, 6000); // 3 seconds delay
+};
 
+  // Handle the summary button click event
   const handleSummaryButtonClick = async () => {
       console.log("Summary button clicked");
       clickTranscriptionButton();
@@ -60,6 +71,7 @@
       }, 3000); // Initial delay to ensure transcription is loaded
   };
 
+  // Click the transcription button to show the transcript
   const clickTranscriptionButton = () => {
       const transcriptionButton = document.querySelector(".yt-spec-touch-feedback-shape__fill");
       if (transcriptionButton) {
@@ -70,6 +82,7 @@
       }
   };
 
+  // Fetch the summary of the transcript text
   const fetchSummary = async (transcriptText) => {
       const payload = {
           text: transcriptText
@@ -93,6 +106,7 @@
       });
   };
 
+  // Get the transcript text from the transcript segments
   const getTranscriptText = () => {
       const transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer .segment-text');
       console.log("Found transcript segments:", transcriptSegments.length); // Log number of segments found
@@ -103,6 +117,7 @@
       return transcriptText.trim();
   };
 
+  // Load the summary into the summary container
   const loadSummary = (summary) => {
       const summaryContainer = document.getElementById('summary-container');
       if (!summaryContainer) {
@@ -117,6 +132,7 @@
       summaryContainer.appendChild(summaryTextElement);
   };
 
+  // Initialize the UI and message listener
   const init = () => {
       createUI();
 

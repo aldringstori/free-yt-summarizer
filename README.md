@@ -23,19 +23,18 @@ ollama run phi3
 Go into chrome extensions enable developer mode and click on load unpacked extension, select the folder containing the extension and voila
 
 3. Open cmd inside the folder of the project and run
+
 ```
    pip install -r requirements.txt
 ```
+
 4. Open a terminal or command prompt, navigate to the directory containing llm_service.py. and app.py
-Run the server
+Run
+
 ```
 python llm_service.py
 python app.py
 ```
-
-
-
-
 ## Simple explanation (for begginers)
 1. User opens YouTube and clicks on 'Summary' button.
 2. A request is sent to the Flask server.
@@ -43,8 +42,6 @@ python app.py
 4. Local LLM API processes the request and sends a summary back to the Flask server.
 5. Flask server sends the summary back to the Chrome extension.
 6. The Chrome extension displays the summary in the view box on YouTube.
-
-
 
 ## Step-by-Step Explanation (for curious)
 
