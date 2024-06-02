@@ -1,7 +1,12 @@
 Created by Aldrin Gustavo Stori
+Inspired by 
+<br>
+https://github.com/ayaansh-roy/llm_chrome_ext_summerizer
+<br>
+https://github.com/xingyuqiu2/youtube-translator-summarizer-extension
 
 
-simple explanation (for begginers)
+## Simple explanation (for begginers)
 1. User opens YouTube and clicks on 'Summary' button.
 2. A request is sent to the Flask server.
 3. Flask server sends a request to the local LLM API.
@@ -11,7 +16,7 @@ simple explanation (for begginers)
 
 
 
-Step-by-Step Explanation (for curious)
+## Step-by-Step Explanation (for curious)
 
 1. **User Opens YouTube:**
     
@@ -63,8 +68,7 @@ Step-by-Step Explanation (for curious)
     - This function updates the summary container (`summaryContainer`) in the UI with the generated summary.
 
 
-
-    Detailed Code Flow (for nerds)
+## Detailed Code Flow (for nerds)
 
 **contentScript.js:**
 
