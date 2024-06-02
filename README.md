@@ -1,34 +1,37 @@
-Created by Aldrin Gustavo Stori
-Inspired by 
-<br>
-https://github.com/ayaansh-roy/llm_chrome_ext_summerizer
-<br>
-https://github.com/xingyuqiu2/youtube-translator-summarizer-extension
+# Free Youtube summarizer extension
 
+Created by Aldrin Gustavo Stori
+Inspired by
+<br>
+<https://github.com/ayaansh-roy/llm_chrome_ext_summerizer>
+<br>
+<https://github.com/xingyuqiu2/youtube-translator-summarizer-extension>
 
 ## Motivation
+
 Watching YouTube videos can often be time-consuming, with crucial information typically scattered throughout the content, sometimes comprising only about 20% of the video. Tools like Sider are incredibly effective in saving time by providing concise summaries that allow you to quickly access the main points. However, free summaries are often limited, and premium options require payment. To help you save both time and money, I have developed this extension.
 
-
-
 ## Installation
+
 1. Install LLM model
-```bash ollama run phi3
+
+```
+ollama run phi3
+```
 
 2. Install the extension
 Go into chrome extensions enable developer mode and click on load unpacked extension, select the folder containing the extension and voila
 
 3. Open cmd inside the folder of the project and run
-   ```bash
+```
    pip install -r requirements.txt
-
+```
 4. Open a terminal or command prompt, navigate to the directory containing llm_service.py. and app.py
 Run the server
-   ```bash
-   python llm_service.py
-
-   python app.py
-
+```
+python llm_service.py
+python app.py
+```
 
 
 
