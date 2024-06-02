@@ -4,6 +4,7 @@ const sendMessageToTab = (tabId, message) => {
     chrome.tabs.sendMessage(tabId, message, (response) => {
       if (chrome.runtime.lastError) {
         // Retry sending the message if there was an error
+        console.log("Error sending message:", chrome.runtime.lastError);
         setTimeout(() => sendMessageToTab(tabId, message), 1000);
       } else {
         console.log("Message sent to tab:", response);
@@ -22,3 +23,9 @@ const sendMessageToTab = (tabId, message) => {
       });
     }
   });
+  
+  
+  
+  
+  
+  
