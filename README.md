@@ -48,7 +48,8 @@ python app.py
 ```
 
 5. Install the extension
-Go into chrome extensions enable developer mode and click on load unpacked extension, select the folder containing the extension.
+<br>
+Go into chrome extensions, enable developer mode and click on load unpacked extension, select the folder containing the extension.
 
 
 
