@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+body, html, div, p, button {
+    font-family: 'DM Sans', sans-serif !important;
+}
+
 #extension-container {
   background-color: #faf5f5;
   padding: 20px;
@@ -8,7 +14,7 @@
   align-items: center;
   border-radius: 20px; /* Increase the border-radius for more roundness */
   border: 1px solid #ddd; /* Add border to match reference */
-  width: 90%; /* Adjust width for better appearance */
+  width: 100%; /* Adjust width for better appearance */
   margin: 0 auto; /* Center the container */
   margin-top: 20px; /* Add some margin on top */
 }
@@ -25,8 +31,8 @@
 }
 
 .extension-icon {
-  width: 24px; /* Increase icon size */
-  height: 24px; /* Increase icon size */
+  width: 40px; /* Increase icon size */
+  height: 40px; /* Increase icon size */
   margin-right: 10px;
 }
 
@@ -47,8 +53,8 @@
   border-radius: 20px; /* More rounded corners */
   box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
   transition: background-color 0.3s ease;
-  font-size: 16px; /* Adjust font size for better appearance */
-  margin-top: 15px; /* Add margin to the top */
+  font-size: 14px; /* Adjust font size for better appearance */
+  margin-top: 12px; /* Add margin to the top */
 }
 
 #summary-btn:hover {
@@ -60,5 +66,5 @@
   margin-top: 20px; /* Increase margin-top */
   width: 100%;
   text-align: center; /* Center align the text */
-  font-size: 16px; /* Adjust font size for better appearance */
+  font-size: 14px; /* Adjust font size for better appearance */
 }
