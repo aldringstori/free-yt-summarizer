@@ -11,6 +11,14 @@ Inspired by
 
 Watching YouTube videos can often be time-consuming, with crucial information typically scattered throughout the content, sometimes comprising only about 20% of the video. Tools like Sider are incredibly effective in saving time by providing concise summaries that allow you to quickly access the main points. However, free summaries are often limited, and premium options require payment. To help you save both time and money, I have developed this extension, just by using the LLM of your preference.
 
+## Simple explanation how the software works
+1. User opens YouTube and clicks on 'Summary' button.
+2. A request is sent to the Flask server.
+3. Flask server sends a request to the local LLM API.
+4. Local LLM API processes the request and sends a summary back to the Flask server.
+5. Flask server sends the summary back to the Chrome extension.
+6. The Chrome extension displays the summary in the view box on YouTube.
+
 ## Installation
 
 1. Install LLM model (phi3 is the default, but you can use any LLM of your choice.)
@@ -19,22 +27,19 @@ Watching YouTube videos can often be time-consuming, with crucial information ty
 ollama run phi3
 ```
 
-2. Install the extension
-Go into chrome extensions enable developer mode and click on load unpacked extension, select the folder containing the extension and voila
-
-3. Clone the repository
+2. Clone the repository
 
 ```
 git clone https://github.com/A-GustavoStori/free-yt-summarizer
 ```
 
-4. Cd to the project folder and run
+3. Cd to the project folder and run
 
 ```
 pip install -r requirements.txt
 ```
 
-5. Open a terminal or command prompt, navigate to the directory containing llm_service.py. and app.py
+4. Open a terminal or command prompt, navigate to the directory containing llm_service.py. and app.py
 Run
 
 ```
@@ -42,16 +47,12 @@ python llm_service.py
 python app.py
 ```
 
+5. Install the extension
+Go into chrome extensions enable developer mode and click on load unpacked extension, select the folder containing the extension.
 
-## Simple explanation (for beginners)
-1. User opens YouTube and clicks on 'Summary' button.
-2. A request is sent to the Flask server.
-3. Flask server sends a request to the local LLM API.
-4. Local LLM API processes the request and sends a summary back to the Flask server.
-5. Flask server sends the summary back to the Chrome extension.
-6. The Chrome extension displays the summary in the view box on YouTube.
 
-## Step-by-Step Explanation (for curious)
+
+## Documentation
 
 1. **User Opens YouTube:**
     
