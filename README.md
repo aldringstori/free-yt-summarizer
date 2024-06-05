@@ -9,7 +9,7 @@ Inspired by
 
 ## Motivation
 
-Watching YouTube videos can often be time-consuming, with crucial information typically scattered throughout the content, sometimes comprising only about 20% of the video. Tools like Sider are incredibly effective in saving time by providing concise summaries that allow you to quickly access the main points. However, free summaries are often limited, and premium options require payment. To help you save both time and money, I have developed this extension, just by using the LLM of your preference.
+Watching YouTube videos can often be time-consuming, with crucial information typically scattered throughout the content, sometimes comprising only about 20% of the video. Tools like Sider are incredibly effective in saving time by providing concise summaries that allow you to quickly access the main points. However, free summaries are often limited, and premium options require payment. To help you save both time and money, I have developed this extension, you can use the LLM of your preference.
 
 ## Simple explanation how the software works
 1. User opens YouTube and clicks on 'Summary' button.
