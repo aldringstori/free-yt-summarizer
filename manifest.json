@@ -17,7 +17,9 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "src/assets/ext-icon.png"
+        "src/assets/ext-icon.png",
+        "node_modules/antd/dist/antd.min.css",
+        "node_modules/antd/dist/antd.min.js"
       ],
       "matches": ["https://*.youtube.com/*"]
     }
