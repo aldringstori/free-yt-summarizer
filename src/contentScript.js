@@ -39,7 +39,7 @@
 
     const copyButton = document.createElement('button');
     copyButton.id = 'copy-btn';
-    copyButton.textContent = 'Copy Summary';
+    copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.1665 2.91663C1.1665 1.95013 1.95001 1.16663 2.9165 1.16663H7.58317C8.54967 1.16663 9.33317 1.95013 9.33317 2.91663V3.49996C9.33317 3.82213 9.072 4.08329 8.74984 4.08329C8.42767 4.08329 8.1665 3.82213 8.1665 3.49996V2.91663C8.1665 2.59446 7.90534 2.33329 7.58317 2.33329H2.9165C2.59434 2.33329 2.33317 2.59446 2.33317 2.91663V7.58329C2.33317 7.90546 2.59434 8.16663 2.9165 8.16663H3.49984C3.822 8.16663 4.08317 8.42779 4.08317 8.74996C4.08317 9.07213 3.822 9.33329 3.49984 9.33329H2.9165C1.95001 9.33329 1.1665 8.54979 1.1665 7.58329V2.91663ZM4.6665 6.41663C4.6665 5.45013 5.45001 4.66663 6.4165 4.66663H11.0832C12.0497 4.66663 12.8332 5.45013 12.8332 6.41663V11.0833C12.8332 12.0498 12.0497 12.8333 11.0832 12.8333H6.4165C5.45001 12.8333 4.6665 12.0498 4.6665 11.0833V6.41663ZM6.4165 5.83329C6.09434 5.83329 5.83317 6.09446 5.83317 6.41663V11.0833C5.83317 11.4055 6.09434 11.6666 6.4165 11.6666H11.0832C11.4053 11.6666 11.6665 11.4055 11.6665 11.0833V6.41663C11.6665 6.09446 11.4053 5.83329 11.0832 5.83329H6.4165Z" fill="currentColor"></path></svg> <span>Copy Summary</span>`;
     copyButton.addEventListener('click', handleCopyButtonClick);
 
     const summaryContainer = document.createElement('div');
@@ -156,22 +156,25 @@
 
     summaryContainer.innerHTML = ''; // Clear previous summary
 
-    const paragraphs = summary.split('\n').filter(paragraph => paragraph.trim() !== '');
-    paragraphs.forEach(paragraph => {
-      const summaryTextElement = document.createElement('p');
-      summaryTextElement.textContent = paragraph;
-      summaryContainer.appendChild(summaryTextElement);
+    summary.split('\n').forEach(paragraph => {
+        const summaryTextElement = document.createElement('p');
+        summaryTextElement.textContent = paragraph;
+        summaryContainer.appendChild(summaryTextElement);
     });
   };
 
   const handleCopyButtonClick = () => {
     const summaryContainer = document.getElementById('summary-container');
-    const text = summaryContainer.innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      console.log('Summary copied to clipboard');
-    }).catch(err => {
-      console.error('Error copying summary:', err);
-    });
+    if (summaryContainer) {
+      const textToCopy = summaryContainer.innerText;
+      navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+          console.log('Summary copied to clipboard');
+        })
+        .catch(err => {
+          console.error('Error copying summary to clipboard:', err);
+        });
+    }
   };
 
   const init = () => {
