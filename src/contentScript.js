@@ -8,7 +8,7 @@
     if (summaryButton) {
       summaryButton.disabled = state;
       summaryButton.innerHTML = state
-        ? `<span class="ant-btn-loading-icon"><span role="img" aria-label="loading" class="anticon anticon-loading anticon-spin"><svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="loading" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M988 548H812c-4.4 0-8-3.6-8-8v-76c0-4.4 3.6-8 8-8h109c-13.8-67.4-45.1-128.8-90.7-177.3l-70.2 70.2c-3.1 3.1-8.2 3.1-11.3 0L560.2 269.2c-3.1-3.1-3.1-8.2 0-11.3l70.2-70.2c-48.5-45.6-109.9-76.9-177.3-90.7V216c0 4.4-3.6 8-8 8H484c-4.4 0-8-3.6-8-8V36c0-4.4 3.6-8 8-8h176c4.4 0 8 3.6 8 8v76c0 4.4-3.6 8-8 8H551.5c67.4 13.8 128.8 45.1 177.3 90.7l70.2-70.2c3.1-3.1 8.2-3.1 11.3 0l75.6 75.6c3.1 3.1 3.1 8.2 0 11.3l-70.2 70.2c45.6 48.5 76.9 109.9 90.7 177.3h104.1c4.4 0 8 3.6 8 8v76c0 4.4-3.6 8-8 8z"></path></svg></span> Loading...`
+        ? `<span class="ant-btn-loading-icon"><span role="img" aria-label="loading" class="anticon anticon-loading anticon-spin"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="loading" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M988 548H812c-4.4 0-8-3.6-8-8v-76c0-4.4 3.6-8 8-8h109c-13.8-67.4-45.1-128.8-90.7-177.3l-70.2 70.2c-3.1 3.1-8.2 3.1-11.3 0L560.2 269.2c-3.1-3.1-3.1-8.2 0-11.3l70.2-70.2c-48.5-45.6-109.9-76.9-177.3-90.7V216c0 4.4-3.6 8-8 8H484c-4.4 0-8-3.6-8-8V36c0-4.4 3.6-8 8-8h176c4.4 0 8 3.6 8 8v76c0 4.4-3.6 8-8 8H551.5c67.4 13.8 128.8 45.1 177.3 90.7l70.2-70.2c3.1-3.1 8.2-3.1 11.3 0l75.6 75.6c3.1 3.1 3.1 8.2 0 11.3l-70.2 70.2c45.6 48.5 76.9 109.9 90.7 177.3h104.1c4.4 0 8 3.6 8 8v76c0 4.4-3.6 8-8 8z"></path></svg></span> Loading...`
         : 'Get Summary';
     }
   };
@@ -21,7 +21,7 @@
     header.id = 'header-container';
 
     const icon = document.createElement('img');
-    icon.src = chrome.runtime.getURL("assets/ext-icon.png");
+    icon.src = chrome.runtime.getURL("src/assets/ext-icon.png");
     icon.title = "ext-icon";
     icon.className = "extension-icon";
 
@@ -37,11 +37,17 @@
     summaryButton.textContent = 'Get Summary';
     summaryButton.addEventListener('click', handleSummaryButtonClick);
 
+    const copyButton = document.createElement('button');
+    copyButton.id = 'copy-btn';
+    copyButton.textContent = 'Copy Summary';
+    copyButton.addEventListener('click', handleCopyButtonClick);
+
     const summaryContainer = document.createElement('div');
     summaryContainer.id = 'summary-container';
 
     extensionContainer.appendChild(header);
     extensionContainer.appendChild(summaryButton);
+    extensionContainer.appendChild(copyButton);
     extensionContainer.appendChild(summaryContainer);
 
     // Delay to ensure elements have loaded before inserting the extension container
@@ -150,9 +156,22 @@
 
     summaryContainer.innerHTML = ''; // Clear previous summary
 
-    const summaryTextElement = document.createElement('p');
-    summaryTextElement.textContent = summary;
-    summaryContainer.appendChild(summaryTextElement);
+    const paragraphs = summary.split('\n').filter(paragraph => paragraph.trim() !== '');
+    paragraphs.forEach(paragraph => {
+      const summaryTextElement = document.createElement('p');
+      summaryTextElement.textContent = paragraph;
+      summaryContainer.appendChild(summaryTextElement);
+    });
+  };
+
+  const handleCopyButtonClick = () => {
+    const summaryContainer = document.getElementById('summary-container');
+    const text = summaryContainer.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      console.log('Summary copied to clipboard');
+    }).catch(err => {
+      console.error('Error copying summary:', err);
+    });
   };
 
   const init = () => {

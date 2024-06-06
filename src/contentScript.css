@@ -61,6 +61,23 @@ body, html, div, p, button {
   background-color: #56329c;
 }
 
+#copy-btn {
+  background-color: #784dca;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+#copy-btn:hover {
+  background-color: #56329c;
+}
+
 #summary-container {
   margin-top: 20px;
   width: 100%;
