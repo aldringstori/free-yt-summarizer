@@ -9,7 +9,7 @@ def generate_text(prompt):
     try:
         payload = {
             "model": "phi3",
-            "prompt": f"summarize the text inside square brackets [{prompt}]",
+            "prompt": f"summarize the text inside square brackets, split by topics, create a title for each topic and create a summary of each topic [{prompt}]",
             "stream": False
         }
 

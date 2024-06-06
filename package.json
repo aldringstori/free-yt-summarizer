@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "antd": "^5.18.0"
+  },
+  "name": "free-yt-summarizer",
+  "version": "1.0.0",
+  "description": "Created by Aldrin Gustavo Stori\r Inspired by\r <br>\r <https://github.com/ayaansh-roy/llm_chrome_ext_summerizer>\r <br>\r <https://github.com/xingyuqiu2/youtube-translator-summarizer-extension>",
+  "main": "background.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
