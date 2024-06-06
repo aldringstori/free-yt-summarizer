@@ -31,6 +31,34 @@ body, html, div, p, button {
   width: 100%;
 }
 
+#tabs-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  background-color: #784dca;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.tab-button:hover {
+  background-color: #56329c;
+}
+
+.tab-button.active {
+  background-color: #56329c;
+}
+
+
 .extension-icon {
   width: 40px;
   height: 40px;
@@ -65,7 +93,11 @@ body, html, div, p, button {
   background-color: #784dca;
   color: #fff;
   border: none;
-  padding: 10px 30px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   border-radius: 10px;
   box-shadow: 0 2px 0 rgba(109, 53, 253, 0.09);
@@ -78,7 +110,7 @@ body, html, div, p, button {
   background-color: #56329c;
 }
 
-#summary-container {
+#summary-container, #transcript-container {
   margin-top: 20px;
   width: 100%;
   text-align: center;
