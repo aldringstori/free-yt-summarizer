@@ -91,14 +91,9 @@ body, html, div, p, button {
 .loading-icon {
   animation: spin 1s linear infinite;
   color: #fff;
-  border: none;
   font-size: 14px;
-  display: flex;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  justify-content: center;
+  width: 14px;
+  height: 14px;
 }
 
 @keyframes spin {
